@@ -16,8 +16,8 @@ $(function() {
         }();
         self.init = function() {
             self.canvas = document.createElement('canvas');
-            self.canvas.width = self.cw = $(window).innerWidth();
-            self.canvas.height = self.ch = $(window).innerHeight();
+            self.canvas.width = self.cw = 1080;
+            self.canvas.height = self.ch = 1920;
             self.particles = [];
             self.partCount = 150;
             self.fireworks = [];

@@ -1,6 +1,8 @@
 // Normalize Styles
 @import 'node_modules/normalize.css/normalize';
 
+@import './fonts';
+
 // Box sizing partial styles:
 // Apply a natural box layout model to all elements
 *,
@@ -31,14 +33,16 @@ body {
   left: 0;
   top: 0;
   z-index: -1;
+  background-repeat: no-repeat;
+  background-size: contain;
 }
 
 .day {
-  background-color: #00BFFF;
+  background-image: url('../images/bg_day.jpg');
 }
 
 .night {
-  background-color: black;
+  background-image: url('../images/bg_night.jpg');
 }
 
 .page {
