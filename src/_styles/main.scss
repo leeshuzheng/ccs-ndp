@@ -3,7 +3,7 @@
 
 @import './fonts';
 
-$proxReg: "Proxima Nova Alt Reg";
+// $proxReg: "Proxima Nova Alt Reg";
 $proxBold: "Proxima Nova Alt Bold";
 
 // Box sizing partial styles:
@@ -27,7 +27,7 @@ body {
   -ms-flex-align: center;
   align-items: center;
   color: #fff;
-  font-family: $proxReg;
+  font-family: $proxBold;
 }
 
 .bg {
@@ -50,15 +50,100 @@ body {
 }
 
 .page {
-  text-align: center;
+  padding: 4.5em;
 }
 
 .logo {
-  text-align: center;
+  width: 410px;
+}
+
+.play {
+  height: 74px;
+  margin-left: 2em;
+}
+
+.information {
+  display: inline-block;
+  float: right;
+  text-align: right;
+
+  h1 {
+    margin: 0;
+    font-size: 3.8em;
+  }
+
+  p {
+    margin-top: 0.1em;
+    font-size: 1.7em;
+  }
 }
 
 .touchtopledge {
   cursor: pointer;
+  margin-top: 202px;
+
+  p {
+    font-size: 54pt;
+    margin: 0;
+    line-height: 1.03;
+  }
+
+  img {
+    width: 387px;
+    position: relative;
+    left: -10px;
+    margin-top: .7em;
+    margin-bottom: .3em;
+  }
+}
+
+.socialmedia {
+
+  margin-top: 1em;
+
+  span {
+    font-size: 2em;
+  }
+
+  .facebook {
+
+    img {
+      left: -19px;
+      width: 100px;
+      position: relative;
+    }
+    span {
+      position: relative;
+      bottom: 22px;
+      left: -7px;
+    }
+  }
+
+  .others {
+
+    span {
+      position: relative;
+      left: -65px;
+      top: -28px;
+    }
+
+    .ig {
+      width: 100px;
+      position: relative;
+      left: -20px;
+    }
+    .twitter {
+      width: 98px;
+      position: relative;
+      left: -50px;
+      top: -1px;
+    }
+    .youtube {
+      width: 100px;
+      position: relative;
+      left: -75px;
+    }
+  }
 }
 
 canvas {
