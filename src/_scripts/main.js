@@ -84,13 +84,16 @@ $(() => {
       success: function success(data) {
         console.log(data);
 
+        let newcount = data;
+
         // display new count
-        // displaycount(data);
+        displaycount(newcount);
 
         // data++;
+        newcount++;
 
         // update count
-        // addcount(data);
+        addcount(newcount);
       },
       error: function error(e) {
         console.log(e);
