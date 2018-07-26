@@ -1,6 +1,9 @@
 import $ from 'jquery';
 
 $(function() {
+
+  window.fireworks = 1;
+
     var Fireworks = function() {
         var self = this;
         var rand = function(rMi, rMa) {
@@ -38,7 +41,7 @@ $(function() {
             self.showShockwave = true;
             self.showTarget = false;
             self.clearAlpha = 25;
-            $(document.body).append(self.canvas);
+            $('.page').append(self.canvas);
             self.ctx = self.canvas.getContext('2d');
             self.ctx.lineCap = 'round';
             self.ctx.lineJoin = 'round';
@@ -252,20 +255,17 @@ $(function() {
                     self.ctx.lineJoin = 'round';
                 }, 100);
             });
-            $(self.canvas).on('mousedown', function(e) {
+
+            $(self.canvas).on('click', function(e) {
+              if (window.fireworks) {
+                console.log('launch fireworks');
                 self.mx = e.pageX - self.canvas.offsetLeft;
                 self.my = e.pageY - self.canvas.offsetTop;
                 self.currentHue = rand(self.hueMin, self.hueMax);
                 self.createFireworks(self.cw / 2, self.ch, self.mx, self.my);
-                $(self.canvas).on('mousemove.fireworks', function(e) {
-                    self.mx = e.pageX - self.canvas.offsetLeft;
-                    self.my = e.pageY - self.canvas.offsetTop;
-                    self.currentHue = rand(self.hueMin, self.hueMax);
-                    self.createFireworks(self.cw / 2, self.ch, self.mx, self.my);
-                });
-            });
-            $(self.canvas).on('mouseup', function(e) {
-                $(self.canvas).off('mousemove.fireworks');
+              } else {
+                console.log('launch pew');
+              }
             });
         }
         self.clear = function() {

@@ -3,6 +3,9 @@
 
 @import './fonts';
 
+$proxReg: "Proxima Nova Alt Reg";
+$proxBold: "Proxima Nova Alt Bold";
+
 // Box sizing partial styles:
 // Apply a natural box layout model to all elements
 *,
@@ -24,6 +27,7 @@ body {
   -ms-flex-align: center;
   align-items: center;
   color: #fff;
+  font-family: $proxReg;
 }
 
 .bg {
@@ -62,4 +66,5 @@ canvas {
   left: 0;
   position: absolute;
   top: 0;
+  z-index: 1;
 }

@@ -17,7 +17,8 @@ $(() => {
   nightbg = $('.night'),
   touchtopledge = $('.touchtopledge'),
   countholder = $('.count'),
-  count = 1000;
+  count = 1000,
+  audio = $('audio');
 
   getbackground(hour);
   countholder.html(count.toLocaleString()); // toLocaleString for adding comma to number
@@ -36,20 +37,69 @@ $(() => {
     return
   });
 
-  touchtopledge.on('click touchstart', function() {
-    count++;
-    count = count.toLocaleString();
+  $('*').on('click', function() {
+    var randomboolean = Math.random() >= 0.5;
+    window.fireworks = randomboolean;
+    console.log(`window.fireworks is ${window.fireworks}`);
+    // getcount();
+    audio[0].play();
 
-    countholder.fadeOut(200, function() {
-      $(this).html(count).fadeIn(200);
-    });
-    // countholder.html(count.toLocaleString());
   });
 
 
   // helper functions
+  function displaycount(number) {
+    number = number.toLocaleString();
+    countholder.html(number);
+  }
+
+  function addcount(newcount) {
+    let data = {
+      'action': 'add_count',
+      'count': newcount
+    };
+
+    $.ajax({
+      type: 'POST',
+      dataType: 'text',
+      url: ccsndp.ajaxurl,
+      data: data,
+      success: function success(data) {
+        console.log(data);
+      },
+      error: function error(e) {
+        console.log(e);
+      }
+    });
+  }
+
+  function getcount() {
+    $.ajax({
+      type: 'GET',
+      dataType: 'text',
+      url: ccsndp.ajaxurl,
+      data: {
+        'action': 'get_count'
+      },
+      success: function success(data) {
+        console.log(data);
+
+        // display new count
+        // displaycount(data);
+
+        // data++;
+
+        // update count
+        // addcount(data);
+      },
+      error: function error(e) {
+        console.log(e);
+      }
+    });
+  }
+
   function getbackground(hourval) {
-    if (hourval >= 14) {
+    if (hourval >= 19) {
       nightbg.show();
       daybg.hide();
     } else {

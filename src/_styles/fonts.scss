@@ -1,8 +1,24 @@
 @font-face {
-	font-family: "Samplino";
-	src: url("fonts/Samplino.eot?") format("eot"),
-		 url("fonts/Samplino.woff2") format("woff2"),
-		 url("fonts/Samplino.woff") format("woff"),
-		 url("fonts/Samplino.ttf") format("truetype"),
-		 url("fonts/Samplino.svg#Samplino") format("svg");
+	font-family: "Proxima Nova Alt Reg";
+	src: url("../fonts/Proxima Nova Alt Reg.otf") format("opentype")
+}
+
+@font-face {
+	font-family: "Proxima Nova Alt Bold";
+	src: url("../fonts/Proxima Nova Alt Bold.otf") format("opentype")
+}
+
+@font-face {
+	font-family: "Proxima Nova Alt Sbold";
+	src: url("../fonts/Proxima Nova Alt Sbold.otf") format("opentype")
+}
+
+@font-face {
+	font-family: "Proxima Nova Alt Thin";
+	src: url("../fonts/Proxima Nova Alt Thin.otf") format("opentype")
+}
+
+@font-face {
+	font-family: "Proxima Nova Alt Xbold";
+	src: url("../fonts/Proxima Nova Alt Xbold.otf") format("opentype")
 }
