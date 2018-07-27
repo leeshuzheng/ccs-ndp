@@ -8,6 +8,9 @@ $proxBold: "Proxima Nova Alt Bold";
 
 // Box sizing partial styles:
 // Apply a natural box layout model to all elements
+
+@import 'node_modules/animate-scss/animate.scss';
+
 *,
 *:before,
 *:after {
@@ -22,7 +25,7 @@ body {
   position: absolute;
   left: 0;
   top: 0;
-  overflow: scroll;
+  overflow: hidden;
   -webkit-box-align: center;
   -ms-flex-align: center;
   align-items: center;
@@ -90,6 +93,10 @@ body {
   }
 
   img {
+    @include pulse(
+    $count: infinite,
+    $duration: 1.5s
+    );
     width: 387px;
     position: relative;
     left: -10px;

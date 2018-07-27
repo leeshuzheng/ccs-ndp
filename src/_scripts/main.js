@@ -17,12 +17,10 @@ $(() => {
   nightbg = $('.night'),
   touchtopledge = $('.touchtopledge'),
   countholder = $('.count'),
-  count = 1000,
   audio = $('audio');
 
   getbackground(hour);
   getcount();
-  countholder.html(count.toLocaleString()); // toLocaleString for adding comma to number
 
   ontime({
     cycle: [ '00:00', '30:00' ] // runs every half hour to check time of day
@@ -38,16 +36,42 @@ $(() => {
     return
   });
 
-  $('*').on('click', function() {
+  $('body').on('click', function() {
     addcount();
     var randomboolean = Math.random() >= 0.5;
     window.fireworks = randomboolean;
-    console.log(`window.fireworks is ${window.fireworks}`);
+    audio[0].currentTime = 0;
     audio[0].play();
   });
 
 
   // helper functions
+  function showpew() {
+    let pew = new Image();
+    pew.src = '../images/pew.png';
+
+    let top = Math.floor(Math.random() * (60 - 10 + 1)) + 10,
+    left = Math.floor(Math.random() * (80 - 5 + 1)) + 5,
+    rotate = Math.floor(Math.random() * (10 + 10 + 1)) - 10,
+    height = Math.floor(Math.random() * (100 - 50 + 1)) + 50;
+
+    pew.addClass('pew').css({
+      'position': 'absolute',
+      top: `${top}%`,
+      left: `${left}%`,
+      transform: `rotate(${rotate}deg)`,
+      height: `${height}px`,
+      opacity: 0
+    });
+
+    // append to .page
+
+    // let it fadeIn
+
+    // setTimeout and fadeout
+    
+  }
+
   function displaycount(number) {
     number = number.toLocaleString();
     countholder.html(number);
@@ -85,6 +109,7 @@ $(() => {
         'action': 'get_count'
       },
       success: function success(data) {
+
         console.log(data);
 
         let currentcount = data;
