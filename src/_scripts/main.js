@@ -21,6 +21,7 @@ $(() => {
   audio = $('audio');
 
   getbackground(hour);
+  getcount();
   countholder.html(count.toLocaleString()); // toLocaleString for adding comma to number
 
   ontime({
@@ -38,12 +39,11 @@ $(() => {
   });
 
   $('*').on('click', function() {
+    addcount();
     var randomboolean = Math.random() >= 0.5;
     window.fireworks = randomboolean;
     console.log(`window.fireworks is ${window.fireworks}`);
-    // getcount();
     audio[0].play();
-
   });
 
 
@@ -53,19 +53,22 @@ $(() => {
     countholder.html(number);
   }
 
-  function addcount(newcount) {
-    let data = {
-      'action': 'add_count',
-      'count': newcount
-    };
+  function addcount() {
 
     $.ajax({
       type: 'POST',
       dataType: 'text',
       url: ccsndp.ajaxurl,
-      data: data,
+      data: {
+        'action': 'add_count'
+      },
       success: function success(data) {
-        console.log(data);
+
+        let newcount = data;
+
+        newcount = parseInt(newcount);
+
+        displaycount(newcount);
       },
       error: function error(e) {
         console.log(e);
@@ -84,16 +87,9 @@ $(() => {
       success: function success(data) {
         console.log(data);
 
-        let newcount = data;
-
-        // display new count
-        displaycount(newcount);
-
-        // data++;
-        newcount++;
-
-        // update count
-        addcount(newcount);
+        let currentcount = data;
+        currentcount = parseInt(currentcount);
+        displaycount(currentcount);
       },
       error: function error(e) {
         console.log(e);
