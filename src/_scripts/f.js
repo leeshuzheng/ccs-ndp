@@ -27,7 +27,7 @@ $(function() {
             self.mx = self.cw / 2;
             self.my = self.ch / 2;
             self.currentHue = 30;
-            self.partSpeed = 4;
+            self.partSpeed = 5;
             self.partSpeedVariance = 10;
             self.partWind = 50;
             self.partFriction = 5;
