@@ -39,67 +39,58 @@ $(() => {
 
   $('body').on('click', function() {
     addcount();
-
-    if (!window.fireworks) {
-      showpew();
-    }
-
     var randomboolean = Math.random() >= 0.5;
-    window.fireworks = randomboolean;
-
-
-
     audio[0].currentTime = 0;
     audio[0].play();
   });
 
 
   // helper functions
-  function showpew() {
-
-    $('.pew').remove();
-
-    let pew = new Image();
-
-
-    let top = Math.floor(Math.random() * (60 - 10 + 1)) + 10,
-    left = Math.floor(Math.random() * (80 - 5 + 1)) + 5,
-    rotate = Math.floor(Math.random() * (25 + 25 + 1)) - 25,
-    height = Math.floor(Math.random() * (100 - 50 + 1)) + 50,
-    srcidx = Math.floor(Math.random() * (9 - 2 + 1)) + 2;
-
-    srcidx = `0${srcidx}`;
-
-    let pathtopew;
-
-    if (window.production) {
-      pathtopew = '../images';
-    } else {
-      pathtopew = '../wp-content/themes/twentyseventeen/assets/images';
-    }
-
-    pew.src = `${pathtopew}/PEWs-${srcidx}.png`;
-
-    let $pew = $(pew);
-
-    $pew.addClass('pew').css({
-      top: `${top}%`,
-      left: `${left}%`,
-      transform: `rotate(${rotate}deg)`,
-      height: `${height}px`
-    });
-
-    // append to .page
-    page.append(pew);
-
-    // let it fadeIn
-    $pew.addClass('show');
-
-    setTimeout(function() {
-      $pew.removeClass('show');
-    }, 1000);
-
-  }
+  // function showpew() {
+  //
+  //   $('.pew').remove();
+  //
+  //   let pew = new Image();
+  //
+  //
+  //   let top = Math.floor(Math.random() * (60 - 10 + 1)) + 10,
+  //   left = Math.floor(Math.random() * (80 - 5 + 1)) + 5,
+  //   rotate = Math.floor(Math.random() * (25 + 25 + 1)) - 25,
+  //   height = Math.floor(Math.random() * (100 - 50 + 1)) + 50,
+  //   srcidx = Math.floor(Math.random() * (9 - 2 + 1)) + 2;
+  //
+  //   srcidx = `0${srcidx}`;
+  //
+  //   let pathtopew;
+  //
+  //   if (window.production) {
+  //     pathtopew = '../images';
+  //   } else {
+  //     pathtopew = '../wp-content/themes/twentyseventeen/assets/images';
+  //   }
+  //
+  //   pew.src = `${pathtopew}/PEWs-${srcidx}.png`;
+  //
+  //   let $pew = $(pew);
+  //
+  //   $pew.addClass('pew').css({
+  //     top: `${top}%`,
+  //     left: `${left}%`,
+  //     transform: `rotate(${rotate}deg)`,
+  //     height: `${height}px`
+  //   });
+  //
+  //   // append to .page
+  //   page.append(pew);
+  //
+  //   // let it fadeIn
+  //   $pew.addClass('show');
+  //
+  //   setTimeout(function() {
+  //     $pew.removeClass('show');
+  //   }, 1000);
+  //
+  // }
 
   function displaycount(number) {
     number = number.toLocaleString();

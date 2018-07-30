@@ -2,8 +2,6 @@ import $ from 'jquery';
 
 $(function() {
 
-  window.fireworks = 1;
-
     var Fireworks = function() {
         var self = this;
         var rand = function(rMi, rMa) {
@@ -257,15 +255,10 @@ $(function() {
             });
 
             $(self.canvas).on('click', function(e) {
-              if (window.fireworks) {
-                console.log('launch fireworks');
                 self.mx = e.pageX - self.canvas.offsetLeft;
                 self.my = e.pageY - self.canvas.offsetTop;
                 self.currentHue = rand(self.hueMin, self.hueMax);
                 self.createFireworks(self.cw / 2, self.ch, self.mx, self.my);
-              } else {
-                console.log('launch pew');
-              }
             });
         }
         self.clear = function() {
